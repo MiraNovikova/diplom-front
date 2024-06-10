@@ -1,0 +1,16 @@
+<div class="d-flex">
+
+    <div class="flex-grow-1 menu-item">
+        <p-menubar [model]="items"></p-menubar>
+    </div>
+  
+    <div class="login-block">
+        <p *ngIf="user">Ваш логин {{user.login}}</p>
+       </div>
+    
+    <div class="time-block">
+
+    <div>{{time | date: 'HH:mm:ss'}}</div>  
+    <p class="timer-day p-0 m-0">{{time | date}}</p>
+    </div>
+</div>
