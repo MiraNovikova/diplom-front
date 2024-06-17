@@ -8,9 +8,17 @@ import {ToastModule} from  'primeng/toast';
 import {MenubarModule} from 'primeng/menubar';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { BooksListComponent } from './books-list/books-list.component';
 import { BooksComponent } from './books.component';
 import { BooksRoutingModule } from './books-routing.module';
+import { BooksListRoutingModule } from '../books-list/books-list-routing.module';
+import { BookOrderRoutingModule } from '../book-order/book-order-routing.module';
+import { MainComponent } from './main/main.component';
+import {CarouselModule} from 'primeng/carousel';
+import { ImageModule } from 'primeng/image'; 
+import { BlocksStyleDirective } from '../directive/blocks-style.directive';
+
+
+
 
 
 
@@ -18,8 +26,9 @@ import { BooksRoutingModule } from './books-routing.module';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    BooksListComponent,
-    BooksComponent
+    BooksComponent,
+    MainComponent,
+    BlocksStyleDirective
   ],
   imports: [
     CommonModule,
@@ -29,8 +38,11 @@ import { BooksRoutingModule } from './books-routing.module';
     CalendarModule,
     InputTextModule,
     ToastModule,
-    BooksRoutingModule
-
+    BooksRoutingModule,
+    BooksListRoutingModule,
+    BookOrderRoutingModule,
+    CarouselModule,
+    ImageModule
   ]
 })
 export class BooksModule { }

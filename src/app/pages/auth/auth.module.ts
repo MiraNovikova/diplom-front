@@ -15,7 +15,7 @@ import { CheckboxModule } from 'primeng/checkbox';
   declarations: [
     AuthorizationComponent,
     RegistrationComponent,
-   AuthComponent
+    AuthComponent
   ],
   imports: [
     CommonModule,

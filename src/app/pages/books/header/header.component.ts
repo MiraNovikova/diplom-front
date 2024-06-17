@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
     this.items = [
       {
         label: 'Главная',
-        routerLink:['books']
+        routerLink:['main']
       },
       {
           label: 'Книги',
@@ -78,7 +78,7 @@ export class HeaderComponent implements OnInit {
   return [
     {
       label: 'Главная',
-      routerLink:['books']
+      routerLink:['main']
     },
     {
       label: 'Книги',

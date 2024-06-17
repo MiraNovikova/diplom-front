@@ -1,0 +1,26 @@
+<div>
+    <div>
+        <input #bookSearch [(ngModel)]='bookSearchValue' type="text" pInputText>
+    </div>
+
+    <div *ngIf="books?.length === 0 && filterText">Данные не найдены</div>
+
+    <div appBlocksStyle *ngIf="books" class="d-flex flex-wrap justify-content-around">
+        <div class="ticket-item col-3 m-2" (click)="goToBookInfoPage(item)" *ngFor="let item of books; let i = index">
+            <div class="book-name">{{item.name}}</div>
+            <div class="book-title">{{item.title}}</div>
+            <div class="book-price">{{item.price}}</div>
+            <div class="book-language">{{item.language}}</div>
+            <div class="book-img">
+                <img src="../../../assets/img/img/{{item.img}}" alt="">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--
+#bookWrap #blockDirective="blocksStyle"
+[initFirst]="false" (renderComplete)="directiveRenderComplete($event)"
+-->

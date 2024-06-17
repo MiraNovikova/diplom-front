@@ -1,8 +1,5 @@
-.footer {
-    text-align: center;
-    border: 1px black solid;
-    position: relative;
-    bottom: -650px;
-    background-color: lightsteelblue;
-   display: flex;
+:host {
+    height: 60px;
+    width: 100%;
+    display: block;
 }

@@ -7,6 +7,16 @@
 
       Работает книжная полка от посетителей. Книги можно заказать для чтения.
     Не предназначены для продажи или обмена.
-
     </p>
-</div>
+
+    <p-carousel [value]="booksList" [autoplayInterval]="3000">
+      <ng-template pTemplate="header">
+      </ng-template>
+      <ng-template let-book pTemplate="item">
+        {{book.name}}
+          <div class="books-img">
+              <div><img class="w-100" src='../../../../assets/img/img/{{book.img}}'></div>
+          </div>
+      </ng-template>
+  </p-carousel>
+
