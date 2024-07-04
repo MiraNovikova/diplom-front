@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IUser } from '../../interface/user';
+import { IUser } from '../../../interface/user';
 import { AuthService } from '../../service/auth/auth.service';
 import { MessageService } from 'primeng/api';
 import { UserService } from '../../service/user/user.service';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { ServerError } from '../../../interface/error'
 
 @Component({
   selector: 'app-authorization',
@@ -24,7 +26,8 @@ export class AuthorizationComponent implements OnInit {
               private messageService : MessageService,
               private router : Router,
               private route: ActivatedRoute,
-              private userService: UserService) { }
+              private userService: UserService,
+              private http: HttpClient) {}
 
   ngOnInit(): void {
     this.authTextButton = "Авторизация";
@@ -34,27 +37,24 @@ export class AuthorizationComponent implements OnInit {
     console.log('auth')
   }
 
-  vipStatusSelected() : void {
-
-  }
-
   onAuth(ev: Event) : void{
     const authUser : IUser = {
       psw: this.psw,
       login: this.login
     }
-    
-    if (this.authService.checkUser(authUser)) {
-      this.userService.setUser(authUser);
+ 
+ this.http.post<{access_token: string, id: string}>('http://localhost:3000/users/'+authUser.login, authUser).subscribe((data) => {
+    authUser.id = data?.id;
+    this.userService.setUser(authUser);
+    //const token: string = 'user-private-token'+data.id;
+    const token: string = data.access_token;
+    this.userService.setToken(token);
+    this.userService.setToStore(token);
+    this.router.navigate(['/books/pay']);
 
-      //this.userService.setToken('user-private-token');
-      
-      this.router.navigate(['books']);
-      
-    }
-    else {
-      this.messageService.add({severity:'error', summary:'Проверьте введеные данные'});
-    }
+  }, (err: HttpErrorResponse)=> {
+    const serverError = <ServerError>err.error;
+    this.messageService.add({severity:'warn', summary:serverError.errorText});
+  });
 }
-
 }

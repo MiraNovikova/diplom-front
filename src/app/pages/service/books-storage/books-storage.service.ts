@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IBook } from '../../interface/books';
+import { IBook } from '../../../interface/books';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,7 @@ export class BooksStorageService {
    }
    getStorage(): IBook[] {
      return this.bookStorage
-      
-}
+    }
+
+  
 }

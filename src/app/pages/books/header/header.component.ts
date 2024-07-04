@@ -1,102 +1,61 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { UserService } from '../../service/user/user.service';
-import { IUser } from '../../interface/user';
-import { IMenuType } from '../../interface/menuType';
+import { IUser } from '../../../interface/user';
 import { MenuItem } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
 
-  @Input() menuType: IMenuType;
-  items: MenuItem[];
 
   @Input() test: string = 'initialValue';
   time: Date;
 
-  private  settingsActive = false;
   private timerInterval: number;
   user: IUser | null;
 
+  constructor(private userService: UserService,
+    private router: Router) { }
 
 
-  constructor( private userService : UserService) { }
-
-  
   ngOnInit(): void {
-    this.items = this.initMenuItems();
-
-    this.items = [
-      {
-        label: 'Главная',
-        routerLink:['main']
-      },
-      {
-          label: 'Книги',
-          routerLink:['books-list']
-     
-      },
-      {
-        label: 'Заказать книгу для чтения',
-        routerLink:['book-order'],
-      },
-     
-      {
-        label: 'Личный кабинет',
-        routerLink:['setting'],
-      },
-      {
-        label: 'Выйти',
-        routerLink:['/auth']
+    this.timerInterval = window.setInterval(() => {
+      this.time = new Date();
+    }, 1000);
    
-    },
-  ];
-  this.timerInterval = window.setInterval(() => {
-    this.time = new Date();
-  }, 1000);
-
-  this.user = this.userService.getUser();
-  }
+    this.user = this.userService.getUser();
+    }
 
   ngOnDestroy(): void {
     if (this.timerInterval) {
       window.clearInterval(this.timerInterval)
     }
-    if(this.items) {
-      window.localStorage.clear()
-    }
+  
   }
-  ngOnChanges(ev: SimpleChanges): void {
-    this.settingsActive = this.menuType?.type === "extended";
-    this.items = this.initMenuItems(); 
- }
 
- initMenuItems(): MenuItem[] {
-  return [
-    {
-      label: 'Главная',
-      routerLink:['main']
-    },
-    {
-      label: 'Книги',
-      routerLink:['books-list']
-    },
-    {
-      label: 'Заказать книгу для чтения',
-      routerLink:['book-order'],
-    },
-    {
-      label: 'Личный кабинет',
-      routerLink:['setting'],
-    },
-    {
-      label: 'Выйти',
-      routerLink:['/auth']
-    },
 
-  ];
-}
+  
+  goToMain(ev: Event): void {
+    this.router.navigate(['/books/main/'])
+  }
+  goToBooksList(ev: Event): void {
+    this.router.navigate(['/books/books-list/'])
+  }
+  goToNews(ev: Event): void {
+    this.router.navigate(['/books/news/'])
+  }
+  goToSetting(ev: Event): void {
+    this.router.navigate(['/books/setting/'])
+  }
+  goToBasket(ev: Event): void {
+    this.router.navigate(['/books/basket/'])
+  }
+  goToExit(ev: Event): void {
+    this.router.navigate(['/auth'])
+  }
+
 }

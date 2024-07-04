@@ -1,5 +1,22 @@
-<div class="book-info-wrap">
-    <div class="m-3">
-        <a routerLink="/books/books-list">Назад</a>
+<div class="m-3 book">
+    <a routerLink="/books/books-list">Назад</a>
+
+
+    <div class="book-item col-3 m-2">
+        <div class="book-name">{{item.name}}</div>
+        <div class="book-title">{{item.title}}</div>
+        <div class="book-price">{{item.price | currency : "руб. " }}</div>
+        <div class="book-description">{{item.description}}</div>
+        <div class="book-img">
+            <img src="../../../assets/img/img/{{item.img}}" width="150px" height="200px">
         </div>
+    </div>
+
+
+    <div class="book-btn col-3 m-2">
+        <button  class="btnAct">Создать заказ</button>
+        <p>Для оплаты покупки просим Вас зайти на сайт или зарегистрироваться. Спасибо</p>
+        <button (click)="goToAuth($event)" class="btnAct">Войти</button>
+    </div>
+
 </div>

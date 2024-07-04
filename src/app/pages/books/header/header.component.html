@@ -1,16 +1,21 @@
-<div class="d-flex">
+<div class="d-flex main-header">
 
-    <div class="flex-grow-1 menu-item">
-        <p-menubar [model]="items"></p-menubar>
-    </div>
-  
     <div class="login-block">
         <p *ngIf="user">Ваш логин {{user.login}}</p>
-       </div>
-    
-    <div class="time-block">
-
-    <div>{{time | date: 'HH:mm:ss'}}</div>  
-    <p class="timer-day p-0 m-0">{{time | date}}</p>
     </div>
+
+    <div class="flex-grow-1 menu-item">
+        <button (click)="goToMain($event)" class="main-btn">Главная</button>
+        <button (click)="goToBooksList($event)" class="main-btn">Книги</button>
+        <button (click)="goToNews($event)" class="main-btn">Новости и акции</button>
+        <button (click)="goToSetting($event)" class="main-btn">Личный кабинет</button>
+        <button (click)="goToBasket($event)" class="main-btn">Корзина</button>
+        <button (click)="goToExit($event)" class="main-btn">Выйти</button>
+    </div>
+
+    <div class="time-block">
+        <div>{{time | date: 'HH:mm:ss'}}</div>
+        <p class="timer-day p-0 m-0">{{time | date}}</p>
+    </div>
+
 </div>

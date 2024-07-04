@@ -1,6 +1,6 @@
 <div class="d-flex flex-column col-6 registration-input-wrap m-auto">
     <div>
-    <span class="mx-3">Логин</span>
+    <span class="mx-3 reg-login">Логин</span>
     <input type="text"
     pInputText
     [ngClass]="{'input-error' : !login}"
@@ -16,7 +16,7 @@
     </div>
 
     <div>
-        <span class="mx-3">Пароль</span>
+        <span class="mx-3 reg-psw">Пароль</span>
         <input type="password"
         class="mt-3"
         pInputText
@@ -32,7 +32,7 @@
          </div>
       
         <div>
-            <span class="mx-3">Повторить пароль</span>
+            <span class="mx-3 reg-psw">Повторить пароль</span>
             <input type="password"
             class="mt-3"
             pInputText
@@ -48,7 +48,7 @@
       
 
      <div>
-            <span class="mx-3">Почта</span>
+            <span class="mx-3 reg-email">Почта</span>
             <input type="text"
             class="mt-3"
             pInputText
@@ -64,11 +64,11 @@
     <p-checkbox (inChange) = "saveSelected()"
     label="Сохранить данные при регистрации"
     name="groupname" [binary]="true" [(ngModel)]="saveValue"
-    class="mx-3"></p-checkbox>
+    class="mx-3 reg-box"></p-checkbox>
 
     <div class="mt-5 d-flex justify-content-center">
     <button [disabled]="!login || !psw || !pswRepeat" 
-    (click)="registration($event)"  type="button" class="btn btn-success">Зарегистрироваться</button>
+    (click)="registration($event)"  type="button" class="btn btn-success reg-btn" [(value)]="messages">Зарегистрироваться</button>
     </div>
     
 </div>

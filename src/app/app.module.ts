@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,13 +7,25 @@ import { FormsModule } from '@angular/forms';
 import { TabViewModule } from 'primeng/tabview';
 import { ToastModule } from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { TableModule } from 'primeng/table';
 import { TreeTableModule } from 'primeng/treetable';
+import { registerLocaleData } from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
+registerLocaleData(localeRu);
+import { MessageService } from 'primeng/api';
+import { MessagesModule } from 'primeng/messages'
+import { ConfigService } from './pages/service/config/config.service';
+import { RestInterceptorService } from './pages/service/interceptor/rest-interceptor.service';
 
 
-
-
+/*
+function initializeApp(config: ConfigService) {
+  return () => config.loadPromise().then(() => {
+    console.log('---CONFIG LOADED--', ConfigService.config)
+  });
+}
+*/
 
 
 
@@ -32,9 +44,16 @@ import { TreeTableModule } from 'primeng/treetable';
     TabViewModule,
     TableModule,
     TreeTableModule,
-    ToastModule
+    ToastModule,
+    MessagesModule
   ],
-  providers: [],
+  providers: [
+    ConfigService,
+   // { provide: APP_INITIALIZER, useFactory: initializeApp, deps: [ConfigService], multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: RestInterceptorService, multi: true},
+    { provide: LOCALE_ID, useValue: 'ru' },
+    {provide: MessageService}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

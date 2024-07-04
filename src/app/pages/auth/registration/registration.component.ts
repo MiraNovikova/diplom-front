@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { IUser } from '../../interface/user';
+import { IUser } from '../../../interface/user';
 import { MessageService } from 'primeng/api';
 import { AuthService } from '../../service/auth/auth.service';
+import { ServerError } from '../../../interface/error';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-registration',
@@ -17,9 +19,11 @@ export class RegistrationComponent implements OnInit {
   cardNumber: string;
   saveValue: boolean;
   saveUserInStore: boolean;
- 
+  messages: any;
+
   constructor(private messageService : MessageService,
-              private authService : AuthService){ }    
+              private authService : AuthService,
+              private http: HttpClient){ }    
 
   ngOnInit(): void {
    
@@ -59,16 +63,20 @@ export class RegistrationComponent implements OnInit {
     if (this.saveValue) {    
       localStorage.setItem('key', JSON.stringify(userObj))
     }
-  
-    if (!this.authService.isUserExsists(userObj)) {
-      this.authService.setUser(userObj);
-      this.messageService.add({severity:'success', summary:'Регистрация прошла успешно'});
-    } if (this.saveValue) {    
-      localStorage.setItem('key', JSON.stringify(userObj))
-    }
-    else {
-      this.messageService.add({severity:'warn', summary:'Пользователь уже зарегистрирован'});
-    }
 
+  this.http.post<IUser>('http://localhost:3000/users/', userObj).subscribe((data) => {
+      if (this.saveUserInStore) {
+        const objUserJsonStr = JSON.stringify(userObj);
+        //window.localStorage.setItem('user_'+userObj.login, objUserJsonStr);
+        window.localStorage.setItem('key', objUserJsonStr);
+      }
+      this.messageService.add({severity:'success', summary:'Регистрация прошла успешно'});
+ 
+    }, (err: HttpErrorResponse)=> {
+      console.log('err', err);
+      const serverError = <ServerError>err.error
+      this.messageService.add({severity:'warn', summary: serverError.errorText});
+    });
+ 
 }
 }

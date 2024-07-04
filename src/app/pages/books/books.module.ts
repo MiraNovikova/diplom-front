@@ -11,12 +11,11 @@ import { FooterComponent } from './footer/footer.component';
 import { BooksComponent } from './books.component';
 import { BooksRoutingModule } from './books-routing.module';
 import { BooksListRoutingModule } from '../books-list/books-list-routing.module';
-import { BookOrderRoutingModule } from '../book-order/book-order-routing.module';
+import { NewsRoutingModule } from '../news/news-routing.module';
 import { MainComponent } from './main/main.component';
 import {CarouselModule} from 'primeng/carousel';
 import { ImageModule } from 'primeng/image'; 
-import { BlocksStyleDirective } from '../directive/blocks-style.directive';
-
+import { ButtonModule } from 'primeng/button';
 
 
 
@@ -27,8 +26,7 @@ import { BlocksStyleDirective } from '../directive/blocks-style.directive';
     HeaderComponent,
     FooterComponent,
     BooksComponent,
-    MainComponent,
-    BlocksStyleDirective
+    MainComponent
   ],
   imports: [
     CommonModule,
@@ -40,9 +38,10 @@ import { BlocksStyleDirective } from '../directive/blocks-style.directive';
     ToastModule,
     BooksRoutingModule,
     BooksListRoutingModule,
-    BookOrderRoutingModule,
+    NewsRoutingModule,
     CarouselModule,
-    ImageModule
+    ImageModule,
+    ButtonModule
   ]
 })
 export class BooksModule { }

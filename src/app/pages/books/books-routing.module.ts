@@ -6,10 +6,11 @@ import { MainComponent } from './main/main.component';
 
 
 const routes: Routes = [
-  { path: '', 
-  component: BooksComponent,
+  { 
+    path: '',
+    component: BooksComponent,
 children: [
-  {
+{
     path: 'main',
     component: MainComponent
   },
@@ -21,14 +22,27 @@ children: [
     path: 'book',
     loadChildren: () => import('../../pages/book/book.module').then(m => m.BookModule)
   },
+
    {
-    path: 'book-order',
-     loadChildren: () => import('../../pages/book-order/book-order.module').then(m => m.BookOrderModule)
+    path: 'news',
+     loadChildren: () => import('../news/news.module').then(m => m.NewsModule)
    },
    {
     path: 'setting',
      loadChildren: () => import('../../pages/setting/setting.module').then(m => m.SettingModule)
-   }
+   },
+   {
+    path: 'basket',
+     loadChildren: () => import('../../pages/basket/basket.module').then(m => m.BasketModule)
+   },
+   {
+    path: 'pay',
+     loadChildren: () => import('../../pages/pay/pay.module').then(m => m.PayModule)
+   },
+  /* {
+    path: 'auth',
+    loadChildren: () => import('../../pages/auth/auth.module').then(m => m.AuthModule)
+   },*/
 ]
 },
   

@@ -1,0 +1,27 @@
+.registration-input-wrap span {
+    width: 176px;
+    display: inline-block;
+    }
+
+    .auth-login {
+        padding: 5px;
+        margin: 10px;
+    }
+    
+    .auth-psw {
+        padding:  5px;
+        margin-left: 5px;
+    }
+
+    .auth-btn {
+        margin: 5px;
+        height: 40px;
+        width: 100px;
+        border-radius: 10px;
+        border-color: rgb(75, 184, 75);
+        background-color: rgb(75, 184, 75);
+    }
+
+    .auth-btn:hover {
+        background-color: lightgreen;
+    }

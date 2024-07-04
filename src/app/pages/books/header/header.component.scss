@@ -5,15 +5,29 @@
 }
 
 .time-block {
-position: absolute;
-right: 0;
-padding: 4px;
+text-align: right;
 }
 
 .login-block {
-display: inline-block;
-position: absolute;
-left: 50%;
-padding: 20px;
+    left: 50%;
+    top:65%;
+    position: absolute;
 }
 
+.main-header {
+    background-color:lightsteelblue;
+    color: white;
+    width: 100%;
+}
+
+.main-btn {
+    width:120px;
+    height: 30px;
+    background-color: white;
+    border-color: lightsteelblue;
+}
+
+.main-btn:hover {
+    background-color: rgb(97, 147, 213);
+    color: white;
+}

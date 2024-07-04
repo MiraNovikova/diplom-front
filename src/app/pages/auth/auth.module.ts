@@ -10,6 +10,9 @@ import { TabViewModule } from 'primeng/tabview';
 import { InputTextModule} from 'primeng/inputtext';
 import {ToastModule} from 'primeng/toast';
 import { CheckboxModule } from 'primeng/checkbox';
+import { MessagesModule } from 'primeng/messages'
+
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { CheckboxModule } from 'primeng/checkbox';
     InputTextModule,
     FormsModule,
     ToastModule,
-    CheckboxModule
+    CheckboxModule,
+    MessagesModule
   ],
   providers: [MessageService]
 })

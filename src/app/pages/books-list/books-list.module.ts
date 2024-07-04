@@ -7,13 +7,15 @@ import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { BookRoutingModule } from '../book/book-routing.module';
+import { BlocksStyleDirective } from '../../directive/blocks-style.directive';
 
 
 
 
 @NgModule({
   declarations: [
-    BooksListComponent
+    BooksListComponent,
+    BlocksStyleDirective
   ],
   imports: [
     CommonModule,

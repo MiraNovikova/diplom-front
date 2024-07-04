@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { IBook, IList } from 'src/app/interface/books';
 
 @Component({
   selector: 'app-books',
@@ -7,11 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BooksComponent implements OnInit {
 
- 
+  books: IList[];
+  item: IBook[]
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-  }
+
+}
 
 }

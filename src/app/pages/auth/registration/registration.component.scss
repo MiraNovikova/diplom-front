@@ -1,0 +1,34 @@
+.registration-input-wrap span {
+    width: 176px;
+    display: inline-block;
+    margin: 10px;
+}
+
+.reg-login {
+    padding: 5px;
+}
+
+.reg-psw {
+    padding: 5px;
+}
+
+.reg-email {
+    padding: 5px;
+}
+
+.reg-box {
+    padding: 5px;
+}
+
+.reg-btn {
+   margin: 5px;
+   height: 40px;
+   width: 150px;
+   border-radius: 10px;
+   border-color: rgb(75, 184, 75);
+   background-color: rgb(75, 184, 75);
+}
+
+.auth-btn:hover {
+    background-color: lightgreen;
+}

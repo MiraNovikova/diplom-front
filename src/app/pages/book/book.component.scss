@@ -1,0 +1,33 @@
+/*.book-info-wrap {
+    display: flex;
+    margin-left: 30px;
+}
+*/
+
+.book {
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-bottom: 600px;
+}
+
+.book-btn {
+    margin-left: 10px;
+    margin-top: 30px;
+}
+
+.btnAct {
+    height: 30px;
+    width: 115px;
+    background-color: white;
+    border-color: lightsteelblue;
+}
+
+.btnAct :hover {
+    background-color: lightsteelblue;
+    border-radius: white;
+}
+
+.book-item {
+    margin-left: 10px;
+    margin-top: 50px;
+}

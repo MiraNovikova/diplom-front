@@ -1,22 +1,13 @@
-<div>
-    <p>Молви друг и войди! (с) Дж.Р.Р.Толкин</p>
-
-    <p>
-      Добро пожаловать в книжный магазинчик
-      Направление: фэнтези
-
-      Работает книжная полка от посетителей. Книги можно заказать для чтения.
-    Не предназначены для продажи или обмена.
-    </p>
-
-    <p-carousel [value]="booksList" [autoplayInterval]="3000">
-      <ng-template pTemplate="header">
-      </ng-template>
-      <ng-template let-book pTemplate="item">
-        {{book.name}}
-          <div class="books-img">
-              <div><img class="w-100" src='../../../../assets/img/img/{{book.img}}'></div>
-          </div>
-      </ng-template>
-  </p-carousel>
-
+<div class="container">
+    <div class="phrase">
+        <p>Молви друг и войди! (с) Дж.Р.Р.Толкин</p>
+    </div>
+</div>
+<div class="carousel">
+    <p-carousel [value]="books" [numVisible]="3" [numScroll]="3" [circular]="true" [autoplayInterval]="5000">
+        <ng-template let-book pTemplate="item">
+            <p-image [src]="book.image" (click)="goToBookInfoPage(book)" class="book-img" width="300px">
+            </p-image>
+        </ng-template>
+    </p-carousel>
+</div>

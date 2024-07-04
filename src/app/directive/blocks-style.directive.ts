@@ -27,7 +27,6 @@ export class BlocksStyleDirective implements OnInit, AfterViewInit, OnChanges {
   }
 
   ngAfterViewInit(): void {
-    //this.activeElementIndex = 0;
     if(this.selector) {
       this.items = this.el.nativeElement.querySelectorAll(this.selector);
       if(this.initFirst) {
@@ -79,7 +78,7 @@ export class BlocksStyleDirective implements OnInit, AfterViewInit, OnChanges {
         }
 
     }
-    this.activeElementIndex = this.index;         //если значение идекса -1
+    this.activeElementIndex = this.index;        
     if(ev.key === "DownArrow") {
       this.index--;
       if(this.index < 0)
