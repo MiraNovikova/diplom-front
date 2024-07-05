@@ -16,7 +16,8 @@ export class BasketService {
 
   addToCart(item: IBook) {
     this.products.push(item);
-    localStorage.setItem('products', JSON.stringify(this.products))
+    localStorage.setItem('products', JSON.stringify(this.products));
+
   }
 
   getItems(): IBook[] {
@@ -30,5 +31,7 @@ export class BasketService {
   removeFromCart(product: IBook): void {
     this.products = this.products.filter(item => item !== product);
   }
+
+
 
 }

@@ -8,7 +8,7 @@ export interface IBook {
   name: string,
   title: string,
   description: string,
-  price: number| string | any,
+  price: number,
   img: string,
   language: string,
   id: string,

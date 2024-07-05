@@ -14,20 +14,43 @@
         </div>
 
         <div class="bnt-s">
-            <button (click)="decrease()" class="btn-q">-</button>
+          <!-- <button (click)="decrease()" class="btn-q">-</button>
 
-            <button (click)="increase()" class="btn-q">+</button>
+            <button (click)="increase()" class="btn-q">+</button>-->  
+
+            <form class="quantity-select">
+                <select name="count" id="count">
+                  <option value="#">Выберите количество книг</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </form>
 
             <button (click)="clearCart()" class="btn-c">Удалить</button>
         </div>
 
     </div>
 
+    
+    <div *ngFor="let item of items">
+   
+    <p>Общая цена {{item.price}}</p>
+</div>
+
+<!--
     <div>
         <p>Общее количество {{quantity}}</p>
         <p>Общая цена {{totalPrice()}}</p>
     </div>
-
+-->
     <button (click)="sendOrder($event)" class="btn-pay">Создать заказ</button>
     <p>Для оплаты покупки просим Вас зайти на сайт или зарегистрироваться. Спасибо</p>
     <button (click)="goToAuth($event)" class="btn-pay">Войти</button>

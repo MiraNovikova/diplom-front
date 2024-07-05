@@ -18,28 +18,33 @@ export class MainComponent implements OnInit {
     this.books = [
       {
         title: "Властелин колец",
-        image: 'https://st14.styapokupayu.ru/ckeditor_assets/pictures/000/238/708_content.jpg',
+        image: 'https://cdn.ast.ru/v2/ASE000000000717323/COVER/cover1__w600.jpg',
         id: '1'
       },
       {
-        title: "Колесо Времени",
-        image: 'https://xlm.ru/storage/uploads/images/2021/10/25/ibuuL3qSVfg4uXszW1DUebntN2ac8IbBYE1rlkZU.jpeg'
+        title: "Дом драконов",
+        image: 'https://cdn.ast.ru/v2/ASE000000000865323/COVER/cover1__w600.jpg',
+        id: '17'
       },
       {
         title: "Цвет волшебства",
-        image: 'https://avatars.mds.yandex.net/get-mpic/4441046/img_id6575235405381453097.jpeg/orig'
+        image: 'https://avatars.mds.yandex.net/get-mpic/4441046/img_id6575235405381453097.jpeg/orig',
+        id: '8'
       },
       {
         title: "Чужак",
-        image: 'https://book24.kz/upload/iblock/b7b/b7bebaf5b0f7f8f9867da4b3a3c4b846.jpg'
+        image: 'https://book24.kz/upload/iblock/b7b/b7bebaf5b0f7f8f9867da4b3a3c4b846.jpg',
+        id: '6'
       },
       {
-        title: "Гарри Поттер и философский камень",
-        image: 'https://cdn1.ozone.ru/s3/multimedia-k/6405137108.jpg'
+        title: "Пятый мир",
+        image: 'https://allbook.by/wp-content/uploads/2023/12/5-11.jpg',
+        id: '12'
       },
       {
-        title: "Хроника Убийцы Короля.Имя ветра",
-        image: 'https://avatars.yandex.net/get-music-content/6386858/b41b12a1.a.24313909-1/m1000x1000?webp=false'
+        title: "Дракон цвета смерти",
+        image: 'https://ndc.bookvoed.ru/resize/1024x1024/iblock/4ff/4ff74088e9eb21671a222b3e5232fb03/c7355179a3b1ee9f38baa4321496ca64.jpeg',
+        id:'14'
       },
       {
         title: "",

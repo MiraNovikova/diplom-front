@@ -18,21 +18,23 @@ export class BasketComponent implements OnInit {
   basket: IBook[] = [];
   basketSubscription: Subscription;
   book: IBook[];
-  price: number | string | any;
+  price: number;
   id: string;
   login: string;
   psw: string;
   user: IUser | null;
   userObj: IUser;
   saveValue: boolean;
-  title: string
+  title: string;
+  quantity : number;;
+  
 
   constructor(private basketService: BasketService,
     private bookRestService: BookRestService,
     private router: Router,
-  private http: HttpClient) { }
+    private http: HttpClient) { }
 
-  quantity = 0;
+ 
  
 
   ngOnInit(): void {
@@ -40,6 +42,7 @@ export class BasketComponent implements OnInit {
   }
 
   items = this.basketService.getItems();
+  
 
   remove(item: IBook) {
     this.items = [];
@@ -50,9 +53,11 @@ export class BasketComponent implements OnInit {
     //const firstItem = this.items.shift()
     const lastItem = this.items.pop();
   }
-
+/*
   increase() {
     this.quantity++;
+    if(this.quantity>=10)
+      return false
   }
 
   decrease() {
@@ -60,7 +65,7 @@ export class BasketComponent implements OnInit {
       this.quantity--
     }
   }
-
+*/
   addToCart(item: IBook) {
     localStorage.setItem('products', JSON.stringify(item))
   }
@@ -74,11 +79,7 @@ export class BasketComponent implements OnInit {
 
   goToAuth(ev: Event) {
     this.router.navigate(['/auth/'])
-  }
-
-
-  totalPrice() {
-  }
+  }  
 
   sendOrder(ev:Event) :void | boolean {
    
