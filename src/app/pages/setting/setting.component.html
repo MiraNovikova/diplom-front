@@ -3,4 +3,28 @@
         <a routerLink="/books/books-list">Назад</a>
     </div>
    <p>Мои заказы</p>
+
+   <div>
+    <p-treeTable [value]="tableData$ | async">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Название</th>
+                <th>Цена за одну книгу</th>
+                <th>Выбранное колличество</th> 
+              
+            </tr>
+        </ng-template>
+      
+        <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+            <tr> 
+                <td>{{rowData.title}}</td>
+                <td>{{rowData.price}}</td>
+                <td>{{rowData.quantity}}</td>
+            </tr>
+        </ng-template>  
+    </p-treeTable>
+   </div>
+
+   <button>Отменить заказ</button>
 </div>
+

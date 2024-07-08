@@ -1,6 +1,6 @@
 export interface IPay {
     title: string;
-    price: number | string,
-    quantity: number | string,
+    price: number,
+    quantity: number,
     id: string
 }

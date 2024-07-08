@@ -32,20 +32,32 @@ export class BookRestService {
  
   }
 /*
-getBookById(id: string) : Observable<IBook> {
-  return this.http.get<IBook>('http://localhost:3000/items'+ id)
+getBookById(_id: string) : Observable<IBook> {
+  return this.http.get<IBook>('http://localhost:3000/test'+ _id)
+
+
+'https://666eadd0f1e1da2be520dab4.mockapi.io/api/books/book-about/'
   }*/
 
   /*postBooksInCard(item : IBook) : Observable<IBook> {
     return this.http.post<IBook>('http://localhost:4200/books/basket', item)
   }*/
 
-    postBooksInCard(item : IBook) : Observable<IBook> {
+   /* postBooksInCard(item : IBook) : Observable<IBook> {
       return this.http.post<IBook>('http://localhost:3000/order', item)
-    }
+    }*/
 
   getBookInCard() : Observable<IBook[]> {
     return this.http.get<IBook[]>('https://666eadd0f1e1da2be520dab4.mockapi.io/api/books/list-info')
+    }
+
+    sendOrderData(items: any) : Observable<any> {   
+      return this.http.post('http://localhost:3000/order/', items)
+    }
+
+
+    getOrderByUserId(userId : any) : Observable<any> {
+      return this.http.get<IBook>('http://localhost:3000/orderd' + userId)
     }
 }
 

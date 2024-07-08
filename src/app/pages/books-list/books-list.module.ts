@@ -8,6 +8,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { BookRoutingModule } from '../book/book-routing.module';
 import { BlocksStyleDirective } from '../../directive/blocks-style.directive';
+import { MessagesModule } from 'primeng/messages';
 
 
 
@@ -23,7 +24,8 @@ import { BlocksStyleDirective } from '../../directive/blocks-style.directive';
     DropdownModule,
     FormsModule,
     InputTextModule,
-    ToastModule
+    ToastModule,
+    MessagesModule
   ]
 })
 export class BooksListModule { }

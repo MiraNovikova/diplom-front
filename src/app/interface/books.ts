@@ -10,19 +10,15 @@ export interface IBook {
   description: string,
   price: number,
   img: string,
-  language: string,
   id: string,
   quantity: number,
-  category: string | any,
-  type?: string
 }
 
 export interface IInfo {
-  name: string,
   title: string,
-  description: string,
-  img: string,
-  id: string
+  price: number,
+  id: string,
+  quantity: number
 }
 
 

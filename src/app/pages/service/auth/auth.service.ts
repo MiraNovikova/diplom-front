@@ -5,7 +5,7 @@ import { IUser } from '../../../interface/user';
   providedIn: 'root'
 })
 export class AuthService {
-  
+  private pathToRedirect: string = '';
   private usersStorage: IUser[] = [];
 
   constructor() { }
@@ -30,7 +30,12 @@ export class AuthService {
     }
     return false; 
   }
-
+  setPathToRedirect(path: string): void {
+    this.pathToRedirect = path;
+  }
+  getPathToRedirect(): string {
+    return this.pathToRedirect;
+  }
   setUser(user: IUser): void {
     const isUserExists = this.usersStorage.find((el) => el.login === user.login);
     if (!isUserExists && user?.login) {

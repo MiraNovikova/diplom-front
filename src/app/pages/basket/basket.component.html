@@ -14,46 +14,64 @@
         </div>
 
         <div class="bnt-s">
-          <!-- <button (click)="decrease()" class="btn-q">-</button>
+            <button (click)="decrease(item)" class="btn-q">-</button>
 
-            <button (click)="increase()" class="btn-q">+</button>-->  
-
-            <form class="quantity-select">
-                <select name="count" id="count">
-                  <option value="#">Выберите количество книг</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                </select>
-              </form>
+            <button (click)="increase(item)" class="btn-q">+</button>
 
             <button (click)="clearCart()" class="btn-c">Удалить</button>
+
         </div>
-
     </div>
 
-    
-    <div *ngFor="let item of items">
-   
-    <p>Общая цена {{item.price}}</p>
-</div>
-
-<!--
-    <div>
-        <p>Общее количество {{quantity}}</p>
-        <p>Общая цена {{totalPrice()}}</p>
+    <div *ngFor="let item of items, let i = index">
+        <p>Общее количество {{item.quantity}}</p>
+        <p>Итого {{item.price * item.quantity}}</p>
     </div>
--->
-    <button (click)="sendOrder($event)" class="btn-pay">Создать заказ</button>
-    <p>Для оплаты покупки просим Вас зайти на сайт или зарегистрироваться. Спасибо</p>
-    <button (click)="goToAuth($event)" class="btn-pay">Войти</button>
+
+    <p>Для создания заказа и оплаты покупки просим Вас зайти на сайт или зарегистрироваться. Спасибо</p>
+
+    <div class="sector">
+      <!--<button type="button"  class="btn-pay btn-pay" *ngIf="showBtn">Оплата</button>-->
+        <div class="versions" *ngIf="showBtn">
+            <legend class="radio">Способ получения книги</legend>
+
+            <div class="radio-var store">
+                <input type="radio" id="in" name="receiving" value="in_store" />
+                <label for="in_store">Самовывоз из магазина</label>
+                <p class="in_store">Наш адрес</p>
+            </div>
+            <div class="radio-var courier">
+                <input type="radio" id="out" name="receiving" value="courier" />
+                <label for="courier">Доставка курьером</label>
+                <input type="text" placeholder="Укажите ваш адрес" class="address">
+            </div>
+
+
+            <legend class="radio">Способ оплаты</legend>
+
+            <div class="radio-var">
+                <input type="radio" id="in_card" name="pay" value="in_card" />
+                <label for="in_card">Банковская карта в магазине</label>
+            </div>
+            <div class="radio-var">
+                <input type="radio" id="in_cash" name="pay" value="in_cash" />
+                <label for="in_cash">Наличными в магазине</label>
+            </div>
+            <div class="radio-var check">
+                <input type="radio" id="card" name="pay" value="card" />
+                <label for="card">Банковской картой на сайте</label>
+                <img class="img-var"
+                    src="https://sun9-7.userapi.com/impg/lMu5OYbAgrCSsRTaLkxEEXQq4GkjWreUp93uQg/hjHJKFN0zY4.jpg?size=508x511&quality=95&sign=56a79f2e7e627a4d0545d446b091dcc0&type=album"
+                    style="width: 100px; height: 100px;" alt="">
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <button (click)="sendOrder($event)" class="btn-pay" *ngIf='showBtn'>Создать заказ</button>
+
+
 
 </div>
-

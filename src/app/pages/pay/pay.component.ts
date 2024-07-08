@@ -13,6 +13,7 @@ import { MessageService } from 'primeng/api';
 export class PayComponent implements OnInit {
   book: IBook | undefined;
   basket: IBook[] = [];
+  
 
   ORDERMOCK: []
   constructor(private booksService: BooksService,
@@ -22,6 +23,7 @@ export class PayComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 
   initPay(ev: Event): void {

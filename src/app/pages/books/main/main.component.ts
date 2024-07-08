@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IBook, IList} from '../../../interface/books';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -14,7 +15,7 @@ export class MainComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-
+  
     this.books = [
       {
         title: "Властелин колец",
@@ -52,6 +53,8 @@ export class MainComponent implements OnInit {
       }
     ]
   }
+
+  back() {}
 
   goToBookInfoPage(item: IBook) { 
     console.log('item', item);

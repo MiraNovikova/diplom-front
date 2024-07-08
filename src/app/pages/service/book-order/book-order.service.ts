@@ -18,8 +18,8 @@ export class BookOrderService {
   ) { }
 
  getOrders(): Observable<TreeNode<OrderType[]>[]> {
-  //const userId = this.userService.getUser()?.id;
-  return this.http.get<OrderType[]>('http://localhost:3000/book-order/').pipe(    // {params: {userId}}
+  const userId = this.userService.getUser()?.id;
+  return this.http.get<OrderType[]>('http://localhost:3000/order/' + userId).pipe(    // {params: {userId}}
     withLatestFrom(this.groupOrders$),
       switchMap(([orders, group]) => {
         //console.log('group', group)

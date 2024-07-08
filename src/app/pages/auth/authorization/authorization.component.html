@@ -1,24 +1,20 @@
+
 <div class="d-flex flex-column col-6 registration-input-wrap span">
 
     <div class="auth-login">
-    <span class="auth-text" class="mx-3">{{loginText}}</span>
-    <input type="text"
-    pInputText
-    [ngClass]="{'input-error' : !login}"
-    [(ngModel)]="login"/>
+        <span class="auth-text" class="mx-3">{{loginText}}</span>
+        <input type="text" pInputText [ngClass]="{'input-error' : !login}" [(ngModel)]="login" />
     </div>
 
     <div class="auth-psw">
-    <span class="mx-3">{{pswText}}</span>
-    <input type="password"
-    class="mt-3"
-    pInputText
-    [ngClass]="{'input-error' : !psw}"
-    [(ngModel)]="psw"/>
+        <span class="mx-3">{{pswText}}</span>
+        <input type="password" class="mt-3" pInputText [ngClass]="{'input-error' : !psw}" [(ngModel)]="psw" />
     </div>
 
     <div class="mt-5 d-flex justify-content-center">
-    <button (click)="onAuth($event)"  type="button" class="btn btn-success auth-btn">{{authTextButton}}</button>
+        <button (click)="onAuth($event)" type="button" class="btn btn-success auth-btn">{{authTextButton}}</button>
     </div>
-    
+    <p-toast></p-toast>
 </div>
+
+<a routerLink="/books/main">Назад</a>

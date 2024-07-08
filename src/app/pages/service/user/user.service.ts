@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IUser } from '../../../interface/user';
 import { BehaviorSubject } from 'rxjs';
+import { IBook } from 'src/app/interface/books';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,6 @@ export class UserService {
   private token: string | undefined;
   private userBehSubject = new BehaviorSubject<IUser | null>(null);
   readonly userBehSubject$ = this.userBehSubject.asObservable()
-
   constructor() { }
 
   getUser(): IUser {
@@ -46,6 +46,9 @@ removeUser(): void {
   this.user = null;
   this.token = null;
   window.localStorage.removeItem('userToken') //userToken
+  if(this.user) {   // очистка после выхода пользователя
+    window.localStorage.clear()
+    }
 }
 
 updateUser(user: IUser) : void {
@@ -66,7 +69,8 @@ getAllToken() : string | null {
 
 clearInfo() {
   this.token = undefined;
-  this.user = undefined
+  this.user = undefined;
+  
 }
 
 public setToStorage(user: IUser) : void {

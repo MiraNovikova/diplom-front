@@ -55,3 +55,22 @@
     background-color: lightsteelblue;
     border-radius: white;
 }
+
+.in_store {
+    display: none;
+}
+
+.store input[type=radio]:checked~.in_store
+{
+    display:block;
+}
+
+
+.address {
+    display: none;
+}
+
+.courier input[type=radio]:checked~.address
+{
+    display:block;
+}

@@ -27,7 +27,8 @@ export class BookComponent implements OnInit {
   quantity: string | any; 
   login: string;
   psw: string;
-  userObj: IUser
+  userObj: IUser;
+
  
   @ViewChild('bookWrap', { read: BlocksStyleDirective }) blockDirective: BlocksStyleDirective;
 
@@ -51,13 +52,9 @@ export class BookComponent implements OnInit {
     });
   }
 
-
-
   goToPay(ev: Event){
     this.router.navigate(['/books/pay/']);
-    if (this.user) {    
-      localStorage.setItem('key', JSON.stringify(this.userObj))
-    }
+
     }
   
 
@@ -65,7 +62,20 @@ export class BookComponent implements OnInit {
     this.router.navigate(['/auth/'])
   }
 
-  getBooksById(id: string): Observable<IBook> { 
-    return this.booksService.getBookById(id)
+
+  getBookById(id: string) : Observable<IBook> {
+    return this.bookRestService.getBookById(id)
+  }
+
+  goToBasket(ev: Event) {
+    this.router.navigate(['/books/basket/'])
+    localStorage.setItem('products', JSON.stringify(this.item))
+  }
+
+  
+  addToCart(item: IBook): void {
+    this.basketService.addToCart(item);
+    console.log(item)
+
   }
 }

@@ -22,13 +22,13 @@ export class BooksService {
    return this.bookRestService.getBooks();
   }
 
-  getBookById(id: string): Observable<IBook> {
+  getBookById(id: string) {
     return this.bookRestService.getBookById(id)
   }
 
-  postBooksInCard(item: IBook): Observable<IBook> {
+  /*postBooksInCard(item: IBook): Observable<IBook> {
     return this.bookRestService.postBooksInCard(item)
-  }
+  }*/
 
   getBookInCard(): Observable<IBook[]> {
     return this.bookRestService.getBookInCard()
@@ -41,4 +41,14 @@ export class BooksService {
    updateBooks(data: IBook[]) {
     this.bookUpdateSubject.next(data);
   }
+
+  //передача заказа на сервер
+  sendOrderData(items: any) {
+    return this.bookRestService.sendOrderData(items)
+  }
+
+  getOrderByUserId(userId: any): Observable<any> {
+    return this.bookRestService.getOrderByUserId(userId)
+}
+
 }

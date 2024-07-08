@@ -18,6 +18,15 @@ text-align: right;
     background-color:lightsteelblue;
     color: white;
     width: 100%;
+
+    & .menu-items {
+      & .menu-item {
+        &.hidden {
+         display: none;
+
+        }
+      }  
+    }
 }
 
 .main-btn {
@@ -31,3 +40,4 @@ text-align: right;
     background-color: rgb(97, 147, 213);
     color: white;
 }
+

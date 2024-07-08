@@ -8,6 +8,7 @@ import { BlocksStyleDirective } from '../../directive/blocks-style.directive';
 import { BookRestService } from '../service/rest/book-rest.service';
 import { BasketService } from '../service/basket/basket.service';
 import { ORDERMOCK } from '../../shared/orders';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-books-list',
@@ -24,7 +25,7 @@ export class BooksListComponent implements OnInit {
   defaultDate: string;
   login: string;
   psw: string;
-  
+  btnClick: boolean = false;
 
 
   @ViewChild('bookWrap', { read: BlocksStyleDirective }) blockDirective: BlocksStyleDirective;
@@ -43,7 +44,8 @@ export class BooksListComponent implements OnInit {
     private router: Router,
     private bookStorage: BooksStorageService,
     private bookRestService: BookRestService,
-    private basketService: BasketService) { }
+    private basketService: BasketService,
+    private messageService : MessageService) { }
 
   ngOnInit(): void {
     this.booksService.getBooks().subscribe(
@@ -88,10 +90,10 @@ export class BooksListComponent implements OnInit {
     })
   }
 
-  /* ngOnDestroy() {
+  ngOnDestroy() {
      this.bookUnsubscriber.unsubscribe();
      this.searchBookSub.unsubscribe()
-   }*/
+   }
 
   goToBookInfoPage(item: IBook) {
     this.router.navigate(['/books/book'],
@@ -114,8 +116,13 @@ export class BooksListComponent implements OnInit {
   }
 
   addToCart(item: IBook): void {
+    item.quantity = 1;
     this.basketService.addToCart(item);
-    console.log(item)
+    console.log(item);
+    this.btnClick = true;
+    setTimeout(() => {
+      this.btnClick = false;
+    }, 3000)
 
   }
 
@@ -131,6 +138,7 @@ export class BooksListComponent implements OnInit {
 
   removePrice() {
     this.books = undefined;
+    window.location.reload(); // перезагрузка страницы после сброса сортировки
   }
 
 
