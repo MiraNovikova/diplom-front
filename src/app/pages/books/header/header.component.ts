@@ -123,28 +123,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   }
 
-  /*
-  goToMain(ev: Event): void {
-    this.router.navigate(['/books/main/'])
-  }
-  goToBooksList(ev: Event): void {
-    this.router.navigate(['/books/books-list/'])
-  }
-  goToNews(ev: Event): void {
-    this.router.navigate(['/books/news/'])
-  }
-  goToSetting(ev: Event): void {
-    this.router.navigate(['/books/setting/'])
-  }
-  goToBasket(ev: Event): void {
-    this.router.navigate(['/books/basket/'])
-  }
-  goToAuth(ev: Event): void {
-    this.router.navigate(['/auth/']);
 
-  }
-  goToExit(ev: Event): void {
-    this.router.navigate(['/books/main/']);
-    localStorage.clear();
-  }*/
 }

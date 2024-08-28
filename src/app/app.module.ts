@@ -19,16 +19,6 @@ import { ConfigService } from './pages/service/config/config.service';
 import { RestInterceptorService } from './pages/service/interceptor/rest-interceptor.service';
 
 
-/*
-function initializeApp(config: ConfigService) {
-  return () => config.loadPromise().then(() => {
-    console.log('---CONFIG LOADED--', ConfigService.config)
-  });
-}
-*/
-
-
-
 
 @NgModule({
   declarations: [
@@ -49,7 +39,6 @@ function initializeApp(config: ConfigService) {
   ],
   providers: [
     ConfigService,
-   // { provide: APP_INITIALIZER, useFactory: initializeApp, deps: [ConfigService], multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: RestInterceptorService, multi: true},
     { provide: LOCALE_ID, useValue: 'ru' },
     {provide: MessageService}

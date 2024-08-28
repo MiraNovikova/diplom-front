@@ -36,14 +36,7 @@ children: [
      loadChildren: () => import('../../pages/basket/basket.module').then(m => m.BasketModule),
      
    },
-   {
-    path: 'pay',
-     loadChildren: () => import('../../pages/pay/pay.module').then(m => m.PayModule)
-   },
-  /* {
-    path: 'auth',
-    loadChildren: () => import('../../pages/auth/auth.module').then(m => m.AuthModule)
-   },*/
+ 
 ]
 },
   

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IBook, IList} from '../../../interface/books';
+import { IBook, IList } from '../../../interface/books';
 import { Router } from '@angular/router';
 
 
@@ -15,7 +15,7 @@ export class MainComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-  
+
     this.books = [
       {
         title: "Властелин колец",
@@ -45,7 +45,7 @@ export class MainComponent implements OnInit {
       {
         title: "Дракон цвета смерти",
         image: 'https://ndc.bookvoed.ru/resize/1024x1024/iblock/4ff/4ff74088e9eb21671a222b3e5232fb03/c7355179a3b1ee9f38baa4321496ca64.jpeg',
-        id:'14'
+        id: '14'
       },
       {
         title: "",
@@ -54,14 +54,14 @@ export class MainComponent implements OnInit {
     ]
   }
 
-  back() {}
+  back() { }
 
-  goToBookInfoPage(item: IBook) { 
+  goToBookInfoPage(item: IBook) {
     console.log('item', item);
-    
+
     this.router.navigate(['/books/book/'],
-      { queryParams: {id: item.id}}
-      );
+      { queryParams: { id: item.id } }
+    );
   }
 
 }

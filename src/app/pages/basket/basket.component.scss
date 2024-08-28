@@ -1,6 +1,6 @@
 .basket {
     margin-top: 50px;
-    margin-bottom: 600px;
+    margin-bottom: 550px;
     margin-left: 10px;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .bnt-s {
-margin-top: 5px;
+    margin-top: 5px;
 }
 
 .quantity-select {
@@ -49,90 +49,85 @@ margin-top: 5px;
     padding-bottom: 10px;
 }
 
-/*
-.versions
-{
-    display: none
+
+.book-pay {
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-bottom: 600px;
 }
 
-.btn-pay:focus + .versions{
-    display: block;
-    }
+.radio {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
 
-*/
-    .book-pay {
-        margin-top: 50px;
-        margin-left: 10px;
-        margin-bottom: 600px;
-    }
-    
-    .radio {
-        margin-top: 20px;
-        margin-bottom: 20px;
-        margin-left: 10px;
-    }
-    
-    .radio-var {
-        margin-left: 10px;
-        padding-bottom: 10px;
-    }
-    
-    
-    .btn-cod {
-        padding-left: 10px;
-        height: 30px;
-        width: 100px;
-        background-color: white;
-        border-color: lightsteelblue;
-    }
-    
-    .btn-cod :hover {
-        background-color: lightsteelblue;
-        border-radius: white;
-    }
-    
-    .img-var {
-        float: right;
-    }
-    
-    .check .img-var {
-        display: none;
-    }
-    
-    .check input[type=radio]:checked~.img-var
-    {
-        display:block;
-    }
-    
-    .initP {
-        margin-top: 30px;
-        margin-left: 10px;
-        width:120px;
-        height: 30px;
-        background-color: white;
-        border-color: lightsteelblue;
-    }
-    
-    .initP :hover {
-        background-color: lightsteelblue;
-        border-radius: white;
-    }
-    
-    .in_store {
-        display: none;
-    }
-    
-    .store input[type=radio]:checked~.in_store
-    {
-        display:block;
-    }
-    
-    
-    .address {
-        display: none;
-    }
-    
-    .courier input[type=radio]:checked~.address
-    {
-        display:block;
-    }
+.radio-var {
+    margin-left: 10px;
+    padding-bottom: 10px;
+}
+
+
+.btn-cod {
+    padding-left: 10px;
+    height: 30px;
+    width: 100px;
+    background-color: white;
+    border-color: lightsteelblue;
+}
+
+.btn-cod :hover {
+    background-color: lightsteelblue;
+    border-radius: white;
+}
+
+.img-var {
+    float: right;
+}
+
+.check .img-var {
+    display: none;
+}
+
+.check input[type=radio]:checked~.img-var {
+    display: block;
+}
+
+.initP {
+    margin-top: 30px;
+    margin-left: 10px;
+    width: 120px;
+    height: 30px;
+    background-color: white;
+    border-color: lightsteelblue;
+}
+
+.initP :hover {
+    background-color: lightsteelblue;
+    border-radius: white;
+}
+
+.in_store {
+    display: none;
+}
+
+.store input[type=radio]:checked~.in_store {
+    display: block;
+}
+
+
+.address {
+    display: none;
+    width: 350px;
+    height: 70px;
+}
+
+.courier input[type=radio]:checked~.address {
+    display: block;
+}
+
+.sector {
+    background-color: white;
+    width: 300px;
+    opacity: 0.9;
+}

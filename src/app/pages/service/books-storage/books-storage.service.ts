@@ -9,13 +9,13 @@ export class BooksStorageService {
   constructor() { }
 
   setStorage(data: IBook[]): void {
-  this.bookStorage = data;
-  
- 
-   }
-   getStorage(): IBook[] {
-     return this.bookStorage
-    }
+    this.bookStorage = data;
 
-  
+
+  }
+  getStorage(): IBook[] {
+    return this.bookStorage
+  }
+
+
 }

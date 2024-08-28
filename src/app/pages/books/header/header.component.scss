@@ -1,17 +1,13 @@
-:host {
-    height: 60px;
-    width: 100%;
-    display: block;
-}
-
 .time-block {
 text-align: right;
 }
 
 .login-block {
-    left: 50%;
-    top:65%;
+    //left: 50%;
+    //top:65%;
     position: absolute;
+    left: 10px;
+    top: 30px;
 }
 
 .main-header {
@@ -40,4 +36,3 @@ text-align: right;
     background-color: rgb(97, 147, 213);
     color: white;
 }
-

@@ -11,14 +11,14 @@ export class AuthService {
   constructor() { }
 
   checkUser(user: IUser): boolean {
-  
+
     const isUserExists = this.usersStorage.find((el) => el.login === user.login);
     let isUserSavedInStore: string | null = window.localStorage.getItem('key');
     let userInStore: IUser = <IUser>{};
 
     if (isUserSavedInStore) {
-   
-    userInStore = JSON.parse(isUserSavedInStore);
+
+      userInStore = JSON.parse(isUserSavedInStore);
 
     }
 
@@ -28,7 +28,7 @@ export class AuthService {
     else if (userInStore?.login) {
       return userInStore.psw === user.psw;
     }
-    return false; 
+    return false;
   }
   setPathToRedirect(path: string): void {
     this.pathToRedirect = path;

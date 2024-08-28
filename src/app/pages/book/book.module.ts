@@ -6,15 +6,14 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
-import { PayRoutingModule } from '../pay/pay-routing.module';
-import { PayComponent } from '../pay/pay.component';
+
 
 
 
 @NgModule({
   declarations: [
     BookComponent,
-    PayComponent
+  
   ],
   imports: [
     CommonModule,
@@ -24,7 +23,7 @@ import { PayComponent } from '../pay/pay.component';
     InputTextModule,
     ToastModule,
     ReactiveFormsModule,
-    PayRoutingModule
+
   ]
 })
 export class BookModule { }

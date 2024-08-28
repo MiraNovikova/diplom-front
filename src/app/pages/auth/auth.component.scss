@@ -2,17 +2,37 @@
     text-align: center;
     display: inline-block;
     font-style: italic;
+    width: 300px;
+    height: 300px;
 }
 
 .auth-app {
     text-align: center;
     padding: 10px;
-   
+
 }
 
 .quote {
-    width: 400px;
-    display: inline-block;
-    margin-left: 100px;
+    width: 300px;
+    position: relative;
+    left: 900px;
     font-style: italic;
+    position: absolute;
 }
+
+.img-auth {
+    width: 400px;
+    height: 400px;
+
+}
+
+.img-sec {
+    margin-top: 50px;
+    position: relative;
+    right: 400px;
+}
+
+body {
+    height: 100%;
+}
+

@@ -12,15 +12,9 @@
         </div>
     </div>
 
-
-<!--
-    <div class="book-btn col-3 m-2">
-        <button  class="btnAct">Создать заказ</button>
-        <p>Для оплаты покупки просим Вас зайти на сайт или зарегистрироваться. Спасибо</p>
-        <button (click)="goToAuth($event)" class="btnAct">Войти</button>
-    </div>-->
-<div>
-    <button  (click)="addToCart(item)" class="btn-add">В корзину</button>
-    <button (click)="goToBasket($event)">Перейти в корзину</button>
-</div>
+    <div class="book-btn">
+        <button (click)="goToBasket($event)" class="btn-card">Перейти в корзину</button>
+        <button (click)="addToCart(item)" class="btnAct">Добавить</button>
+        
+    </div>
 </div>

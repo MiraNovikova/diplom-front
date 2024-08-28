@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { IBook, IBookTypeSelect} from '../../interface/books';
+import { IBook, IBookTypeSelect } from '../../interface/books';
 import { Subscription, debounceTime, fromEvent } from 'rxjs';
 import { BooksService } from '../service/books/books.service';
 import { Router } from '@angular/router';
@@ -7,7 +7,6 @@ import { BooksStorageService } from '../service/books-storage/books-storage.serv
 import { BlocksStyleDirective } from '../../directive/blocks-style.directive';
 import { BookRestService } from '../service/rest/book-rest.service';
 import { BasketService } from '../service/basket/basket.service';
-import { ORDERMOCK } from '../../shared/orders';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -32,7 +31,7 @@ export class BooksListComponent implements OnInit {
 
   @ViewChild('bookWrap') bookWrap: ElementRef;
 
-  bookUnsubscriber: Subscription;   //3.1
+  bookUnsubscriber: Subscription;
 
   @ViewChild('bookSearch') bookSearch: ElementRef;
 
@@ -45,7 +44,7 @@ export class BooksListComponent implements OnInit {
     private bookStorage: BooksStorageService,
     private bookRestService: BookRestService,
     private basketService: BasketService,
-    private messageService : MessageService) { }
+    private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.booksService.getBooks().subscribe(
@@ -91,9 +90,9 @@ export class BooksListComponent implements OnInit {
   }
 
   ngOnDestroy() {
-     this.bookUnsubscriber.unsubscribe();
-     this.searchBookSub.unsubscribe()
-   }
+    this.bookUnsubscriber.unsubscribe();
+    this.searchBookSub.unsubscribe()
+  }
 
   goToBookInfoPage(item: IBook) {
     this.router.navigate(['/books/book'],
@@ -127,7 +126,6 @@ export class BooksListComponent implements OnInit {
   }
 
 
-
   sortPriceInc(): void {
     this.books = this.books.sort((a, b) => a.price - b.price);
   }
@@ -140,7 +138,5 @@ export class BooksListComponent implements OnInit {
     this.books = undefined;
     window.location.reload(); // перезагрузка страницы после сброса сортировки
   }
-
-
 
 }

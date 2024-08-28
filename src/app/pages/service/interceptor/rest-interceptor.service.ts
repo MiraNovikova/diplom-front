@@ -11,12 +11,12 @@ export class RestInterceptorService {
   constructor(private userService: UserService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    
+
     const hasToken = this.userService.getToken();
     //console.log('hasToken', hasToken)
 
 
-    if(hasToken) {
+    if (hasToken) {
       const cloned = req.clone({
         headers: req.headers.set('Authorization',
           'Bearer ' + hasToken
@@ -26,6 +26,6 @@ export class RestInterceptorService {
     } else {
       return next.handle(req)
     }
-    
-  } 
+
+  }
 }

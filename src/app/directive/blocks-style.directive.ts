@@ -1,5 +1,4 @@
 
-
 import { AfterViewInit, Directive, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Directive({
@@ -49,51 +48,12 @@ export class BlocksStyleDirective implements OnInit, AfterViewInit, OnChanges {
 
   }
 
-  initKeyUp(ev: KeyboardEvent) : void | boolean {
-    console.log('ev', ev);
-    if(ev.key === 'ArrowRight' || ev.key === 'ArrowLeft')
-   {(this.items[this.index] as HTMLElement).removeAttribute('style')}
-    
-
-    if(ev.key === 'ArrowRight') {
-      if (this.index === this.items.length-1) {
-        (this.items[this.index] as HTMLElement).setAttribute('style','border: 3px solid red');
-        return false;
-      }
-
-      this.index++;
-      if(this.items[this.index]) {
-        (this.items[this.index] as HTMLElement).setAttribute('style','border: 3px solid red');
-      
-      }
-    } else if(ev.key === 'ArrowLeft'){
- 
-        if (this.index === 0) {
-          (this.items[this.index] as HTMLElement).setAttribute('style','border: 3px solid red');
-          return false;
-        }
-        this.index--;
-        if(this.items[this.index]) {
-          (this.items[this.index] as HTMLElement).setAttribute('style','border: 3px solid red');
-        }
-
-    }
-    this.activeElementIndex = this.index;        
-    if(ev.key === "DownArrow") {
-      this.index--;
-      if(this.index < 0)
-      return console.log("Complete")
-    }
-  }
-
-
+  
   initStyle(index: number) {
     if(this.items[index]) {
       (this.items[index] as HTMLElement).setAttribute('style', 'border: 3px solid red');
     }
   }
 
-  updateItems(): void {
-    this.items = this.el.nativeElement.querySelectorAll(this.selector);
-  }
+  
 }

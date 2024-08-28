@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { IBook, IInfo } from '../../interface/books';
+import { IBook, IInfo} from '../../interface/books';
 import { IUser } from '../../interface/user';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -24,12 +24,12 @@ export class BookComponent implements OnInit {
   bookForm: FormGroup;
   info: IInfo[];
   item: IBook;
-  quantity: string | any; 
+  quantity: string | any;
   login: string;
   psw: string;
   userObj: IUser;
 
- 
+
   @ViewChild('bookWrap', { read: BlocksStyleDirective }) blockDirective: BlocksStyleDirective;
 
   @ViewChild('bookWrap') bookWrap: ElementRef;
@@ -40,30 +40,25 @@ export class BookComponent implements OnInit {
     private booksService: BooksService,
     private bookRestService: BookRestService,
     private basketService: BasketService,
-    private  router: Router) { }
+    private router: Router) { }
 
   ngOnInit(): void {
-
-  
-
     const bookId = this.route.snapshot.queryParamMap.get('id');
     this.booksService.getBookById(bookId).subscribe((data) => {
       this.item = data;
     });
   }
 
-  goToPay(ev: Event){
+  goToPay(ev: Event) {
     this.router.navigate(['/books/pay/']);
+  }
 
-    }
-  
 
   goToAuth(ev: Event) {
     this.router.navigate(['/auth/'])
   }
 
-
-  getBookById(id: string) : Observable<IBook> {
+  getBookById(id: string): Observable<IBook> {
     return this.bookRestService.getBookById(id)
   }
 
@@ -72,7 +67,6 @@ export class BookComponent implements OnInit {
     localStorage.setItem('products', JSON.stringify(this.item))
   }
 
-  
   addToCart(item: IBook): void {
     this.basketService.addToCart(item);
     console.log(item)

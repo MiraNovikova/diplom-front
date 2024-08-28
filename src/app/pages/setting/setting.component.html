@@ -2,29 +2,27 @@
     <div class="m-3 link">
         <a routerLink="/books/books-list">Назад</a>
     </div>
-   <p>Мои заказы</p>
+    <h4>Мои заказы</h4>
 
-   <div>
-    <p-treeTable [value]="tableData$ | async">
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Название</th>
-                <th>Цена за одну книгу</th>
-                <th>Выбранное колличество</th> 
-              
-            </tr>
-        </ng-template>
-      
-        <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
-            <tr> 
-                <td>{{rowData.title}}</td>
-                <td>{{rowData.price}}</td>
-                <td>{{rowData.quantity}}</td>
-            </tr>
-        </ng-template>  
-    </p-treeTable>
-   </div>
+    <div class="table">
+        <p-treeTable [value]="tableData$ | async">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Название</th>
+                    <th>Цена за одну книгу</th>
+                    <th>Выбранное колличество</th>
 
-   <button>Отменить заказ</button>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+                <tr>
+                    <td>{{rowData.title}}</td>
+                    <td>{{rowData.price}}</td>
+                    <td>{{rowData.quantity}}</td>
+                </tr>
+            </ng-template>
+        </p-treeTable>
+    </div>
+
 </div>
-

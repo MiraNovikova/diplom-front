@@ -29,62 +29,62 @@ export class UserService {
   }
 
   getToken(): string | undefined {
-    if(this.token) {
+    if (this.token) {
       return this.token
     } else {
-      console.log("error");
-      return
+      const getTokenFromLS = window.localStorage.getItem('token');
+      return getTokenFromLS
     }
-}
+  }
 
-setToStore(token: string) : void {
-  this.token = token;
-  localStorage.setItem('token', token)
-}
+  setToStore(token: string): void {
+    this.token = token;
 
-removeUser(): void {
-  this.user = null;
-  this.token = null;
-  window.localStorage.removeItem('userToken') //userToken
-  if(this.user) {   // очистка после выхода пользователя
-    window.localStorage.clear()
+  }
+
+  removeUser(): void {
+    this.user = null;
+    this.token = null;
+    window.localStorage.removeItem('userToken')
+    if (this.user) {   // очистка после выхода пользователя
+      window.localStorage.clear()
     }
-}
-
-updateUser(user: IUser) : void {
-  this.user = user;
-}
-
-getFormStore(){
-  return window.localStorage.getItem('userToken')
-}
-
-getAllToken() : string | null {
-  if(this.token) {
-    return this.token;
-  } else {
-    return this.getFormStore()
   }
-}
 
-clearInfo() {
-  this.token = undefined;
-  this.user = undefined;
-  
-}
-
-public setToStorage(user: IUser) : void {
-  if(localStorage.getItem('key')) {    // UserStorageName
-    localStorage.setItem('key', JSON.stringify(user))
+  updateUser(user: IUser): void {
+    this.user = user;
   }
-}
 
-public getFormStorage() : IUser | null {
-  const userFormStore = localStorage.getItem('key');
-  if ('key') {
-    return JSON.parse(userFormStore)
+  getFormStore() {
+    return window.localStorage.getItem('userToken')
   }
-  return null
-}
+
+  getAllToken(): string | null {
+    if (this.token) {
+      return this.token;
+    } else {
+      return this.getFormStore()
+    }
+  }
+
+  clearInfo() {
+    this.token = undefined;
+    this.user = undefined;
+
+  }
+
+  public setToStorage(user: IUser): void {
+    if (localStorage.getItem('key')) {    // UserStorageName
+      localStorage.setItem('key', JSON.stringify(user))
+    }
+  }
+
+  public getFormStorage(): IUser | null {
+    const userFormStore = localStorage.getItem('key');
+    if ('key') {
+      return JSON.parse(userFormStore)
+    }
+    return null
+  }
 
 }

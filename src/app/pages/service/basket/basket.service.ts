@@ -11,7 +11,7 @@ export class BasketService {
   private basketUpdateSubject = new Subject<IBook[]>();
   readonly basketUpdateSubject$ = this.basketUpdateSubject.asObservable();
 
-  constructor(private bookRestService : BookRestService) { }
+  constructor(private bookRestService: BookRestService) { }
 
   products: IBook[] = [];
 
@@ -24,15 +24,6 @@ export class BasketService {
   getItems(): IBook[] {
     return this.products;
   }
-
-  clearCart() {
-    this.products = [];
-  }
-
-  removeFromCart(product: IBook): void {
-    this.products = this.products.filter(item => item !== product);
-  }
-
 
 
 }

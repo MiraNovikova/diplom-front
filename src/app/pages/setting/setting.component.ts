@@ -11,7 +11,7 @@ import { BookOrderService } from '../service/book-order/book-order.service';
   styleUrls: ['./setting.component.scss']
 })
 export class SettingComponent implements OnInit {
-  
+
   tableData$: Observable<TreeNode<OrderType[]>[]>;
   tableData: TreeNode<OrderType[]>[] = [];
 
@@ -26,8 +26,8 @@ export class SettingComponent implements OnInit {
 
     this._destroyer = this.bookOrderService.groupOrders$.subscribe((data: boolean) => {
       this.initOrders()
-   })
-  
+    })
+
   }
 
   ngOnDestroy(): void {
@@ -35,7 +35,7 @@ export class SettingComponent implements OnInit {
   }
 
   initOrders(): void {
-   this.tableData$ = this.bookOrderService.getOrders()
+    this.tableData$ = this.bookOrderService.getOrders()
   }
 
 }

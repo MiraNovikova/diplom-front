@@ -6,10 +6,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
-import { BookRoutingModule } from '../book/book-routing.module';
 import { BlocksStyleDirective } from '../../directive/blocks-style.directive';
 import { MessagesModule } from 'primeng/messages';
-
 
 
 

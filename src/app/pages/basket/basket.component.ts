@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { BasketService } from '../service/basket/basket.service';
 import { Subscription } from 'rxjs';
-import { IBook, IInfo } from '../../interface/books';
+import { IBook } from '../../interface/books';
 import { BookRestService } from '../service/rest/book-rest.service';
 import { Router } from '@angular/router';
 import { IUser } from '../../interface/user';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from '../service/user/user.service';
 import { BooksService } from '../service/books/books.service';
-//import { IBook } from '../interface/books';
 
 
 @Component({
@@ -28,33 +27,29 @@ export class BasketComponent implements OnInit {
   userObj: IUser;
   saveValue: boolean;
   title: string;
-  //quantity: number;
-  //isDisabled: boolean;
   showBtn: boolean;
-  
+  index: number
 
   constructor(private basketService: BasketService,
     private bookRestService: BookRestService,
     private router: Router,
     private http: HttpClient,
     private userService: UserService,
-    private booksService: BooksService, 
-    ) { }
+    private booksService: BooksService,
+  ) { }
 
-//quantity = 0;
 
   ngOnInit(): void {
 
     this.user = this.userService.getUser();
-    //localStorage.setItem('key', JSON.stringify(this.userObj))
     localStorage.getItem('key')
-    if(this.user.login){
+    if (this.user.login) {
       this.showBtn = true;
     }
-    if(!this.user.login){
+    if (!this.user.login) {
       this.showBtn = false;
     }
-    
+
   }
 
   items = this.basketService.getItems();
@@ -65,11 +60,10 @@ export class BasketComponent implements OnInit {
     return this.items;
   }
 
-  clearCart(): void {
+  clearCart() {
     //const firstItem = this.items.shift()
-     const lastItem = this.items.pop();
-   
-    }
+    const lastItem = this.items.pop();
+  }
 
   addToCart(item: IBook) {
     localStorage.setItem('products', JSON.stringify(item))
@@ -90,25 +84,24 @@ export class BasketComponent implements OnInit {
 
   decrease(item: IBook) {
     if (item.quantity > 0) {
-      item.quantity--
-    }
+      item.quantity-- ;
+    } 
+   // const rItem = this.items.splice(this.index, 1);
   }
 
   //передача данных на сервер
-  sendOrder(ev: Event)  : void {
-
-
+  sendOrder(ev: Event): void {
 
     const booksData = [...this.items];
- 
+
     const postData = {
       user: this.userService.getUser()?.id,
       items: booksData
     }
-      this.booksService.sendOrderData(postData).subscribe((data) => {
-        console.log(data)
-      })
-    
+    this.booksService.sendOrderData(postData).subscribe((data) => {
+      console.log(data)
+    })
+
   }
 
 }

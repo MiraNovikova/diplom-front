@@ -14,13 +14,13 @@ export class BookOrderService {
   readonly groupOrders$ = this.groupOrders.asObservable()
 
   constructor(private http: HttpClient,
-    private userService : UserService
+    private userService: UserService
   ) { }
 
- getOrders(): Observable<TreeNode<OrderType[]>[]> {
-  const userId = this.userService.getUser()?.id;
-  return this.http.get<OrderType[]>('http://localhost:3000/order/' + userId).pipe(    // {params: {userId}}
-    withLatestFrom(this.groupOrders$),
+  getOrders(): Observable<TreeNode<OrderType[]>[]> {
+    const userId = this.userService.getUser()?.id;
+    return this.http.get<OrderType[]>('http://localhost:3000/order/' + userId).pipe(
+      withLatestFrom(this.groupOrders$),
       switchMap(([orders, group]) => {
         //console.log('group', group)
         return of(orders).pipe(
@@ -32,9 +32,9 @@ export class BookOrderService {
             }
           }));
       }
+      )
     )
-  )
-}
+  }
   groupData(data: OrderType[], arg1: string): any {
     throw new Error('Method not implemented.');
   }
@@ -48,17 +48,16 @@ export class BookOrderService {
       expanded: true
     }
 
-    if (Array.isArray(data))
-       {
+    if (Array.isArray(data)) {
       data.forEach((el: OrderType) => {
         const dataObj = {
           data: el
         }
         treeNodeObj.children?.push(dataObj);
       });
-    } else  {
+    } else {
       return <TreeNode<OrderType[]>>[]
-    } 
+    }
     console.log('treeNodeObj', treeNodeObj)
     return treeNodeObj;
   }

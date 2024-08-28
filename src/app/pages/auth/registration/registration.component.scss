@@ -21,14 +21,18 @@
 }
 
 .reg-btn {
-   margin: 5px;
-   height: 40px;
-   width: 150px;
-   border-radius: 10px;
-   border-color: rgb(75, 184, 75);
-   background-color: rgb(75, 184, 75);
+    margin: 5px;
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    border-color: rgb(75, 184, 75);
+    background-color: rgb(75, 184, 75);
 }
 
 .auth-btn:hover {
     background-color: lightgreen;
+}
+
+.input-error {
+    border: 1px solid red !important;
 }
